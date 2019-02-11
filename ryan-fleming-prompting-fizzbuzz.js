@@ -44,13 +44,15 @@ function spaceMaker(i) {
     if (99 < i) {
         return whitespace;
     } else if (9 < i) {
-        return whitespace+whitespace+whitespace;
+        return whitespace + whitespace + whitespace;
     } else {
-        return whitespace+whitespace+whitespace+whitespace+whitespace;
+        return whitespace + whitespace + whitespace + whitespace + whitespace;
     }
 }
 
-function promptForValue(doScoldUser=false, promptForSecondValue=false) {
+function promptForValue(doScoldUser, promptForSecondValue) {
+    if (undefined == doScoldUser) { doScoldUser = false; }
+    if (undefined == promptForSecondValue) { promptForSecondValue = false; }
     var strInstructions = promptForSecondValue ? "Enter a second numeric value between 1 & 100." : "Enter a numeric value between 1 & 100.";
     var strScold = "YOU FAILED TO FOLLOW INSTRUCTIONS. PLEASE TRY AGAIN."
     var strMessage = doScoldUser ? strScold + " " + strInstructions : strInstructions;
